@@ -1,0 +1,10 @@
+div {
+  font-size: 16px;
+}
+div.my_big {
+  font-size: 18px;
+  background: #00FFFF;
+}
+div .my_small {
+  font-size: 11px;
+}
