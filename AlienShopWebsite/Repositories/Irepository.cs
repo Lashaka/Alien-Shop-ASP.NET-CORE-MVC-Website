@@ -5,7 +5,7 @@ namespace AlienShopWebsite.Repositories
     {
         IEnumerable<Alien> GetAliens();
         IEnumerable<Category> GetCategories();
-        List<Alien> Top2Aliens();
+        List<Alien> Top3Aliens();
         Alien GetAlienById(int id);
         void Delete(int id); 
         void AddAlien(Alien alien);

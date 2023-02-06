@@ -17,9 +17,9 @@ namespace AlienShopWebsite.Repositories
         {
             return dBContext.Aliens;
         }
-        public List<Alien> Top2Aliens()
+        public List<Alien> Top3Aliens()
         {
-            return dBContext.Aliens.Include(c => c.Comments).OrderByDescending(c => c.Comments!.Count).Take(2).ToList();
+            return dBContext.Aliens.Include(c => c.Comments).OrderByDescending(c => c.Comments!.Count).Take(3).ToList();
         }
         public Alien GetAlienById(int id) => dBContext.Aliens.First(a => a.AlienId == id);
         public void Delete(int id)

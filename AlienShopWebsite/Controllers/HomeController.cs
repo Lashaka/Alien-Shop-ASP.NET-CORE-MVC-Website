@@ -15,7 +15,7 @@ namespace AlienShopWebsite.Controllers
 
         public IActionResult Index()
         {
-            return View(irepository.Top2Aliens());
+            return View(irepository.Top3Aliens());
         }
 
     }
