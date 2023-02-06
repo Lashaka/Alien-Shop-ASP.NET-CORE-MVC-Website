@@ -118,43 +118,43 @@ namespace AlienShopWebsite.Services
             modelBuilder.Entity<Comment>().HasData(
             new
             {
-                CommentsId = 1,
+                CommentId = 1,
                 Descripition = "very scry animal",
                 AlienId = 1
             },
             new
             {
-                CommentsId = 2,
+                CommentId = 2,
                 Descripition = "poisaning animal",
                 AlienId = 2
             },
             new
             {
-                CommentsId = 3,
+                CommentId = 3,
                 Descripition = "cute animal",
                 AlienId = 3
             },
             new
             {
-                CommentsId = 4,
+                CommentId = 4,
                 Descripition = "huge animal",
                 AlienId = 4
             },
             new
             {
-                CommentsId = 5,
+                CommentId = 5,
                 Descripition = "cool animal",
                 AlienId = 5
             },
              new
              {
-                 CommentsId = 6,
+                 CommentId = 6,
                  Descripition = "scary animal",
                  AlienId = 6
              },
              new
              {
-                 CommentsId = 7,
+                 CommentId = 7,
                  Descripition = "dangerous animal",
                  AlienId = 7
              });

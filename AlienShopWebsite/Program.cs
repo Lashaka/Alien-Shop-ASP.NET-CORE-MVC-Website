@@ -1,23 +1,28 @@
+using AlienShopWebsite.Services;
+using Microsoft.EntityFrameworkCore;
+using AlienShopWebsite.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<DBContext>(options => options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
+builder.Services.AddTransient<Irepository, Repository>();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-}
 app.UseStaticFiles();
-
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+});
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
 
+using (var scope = app.Services.CreateScope())
+{
+    var ctx = scope.ServiceProvider.GetRequiredService<DBContext>();
+    ctx.Database.EnsureDeleted();
+    ctx.Database.EnsureCreated();
+}
+/* added*/
 app.Run();
+
+

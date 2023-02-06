@@ -67,7 +67,7 @@ namespace AlienShopWebsite.Repositories
         public IEnumerable <Comment> ShowComments(int Id)
         {
             var Alien = dBContext.Aliens!.Find(Id);
-            return Alien.Comments!; 
+            return Alien?.Comments!; 
         }
     }
 }

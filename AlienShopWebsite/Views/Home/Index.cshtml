@@ -9,15 +9,15 @@
         <th>Description:</th>
         <th>number of comments:</th>
     </tr>
-    @foreach (var Alien in Model)
+    @foreach (var alien in Model)
     {
         <tr>
             <td>
-                <img class="img-thumbnail" style="width:600px" src="@Alien.PicturePath">
+                <img class="img-thumbnail" style="width:600px" src="@alien.PicturePath">
             </td>
-            <td>@Alien.Name</td>
-            <td>@Alien.Descripition:</td>
-            <td>@Alien.Comments.Count</td>
+            <td>@alien.Name</td>
+            <td>@alien.Descripition:</td>
+            <td>@alien.Comments.Count</td>
         </tr>
     }
 </table>

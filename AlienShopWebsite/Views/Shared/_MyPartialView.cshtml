@@ -1,0 +1,56 @@
+﻿@model AlienShopWebsite.Models.Alien
+<form method="post" enctype="multipart/form-data">
+    <div class="container align-content-start" >
+        <div class="text-center">
+            <div class="col">
+                <label>
+                    Name:
+                    <label asp-for="Name">
+                        <input asp-for="Name" />
+                    </label>
+                    <span asp-validation-for="Name"></span>
+                </label>
+            </div>
+            <div style="align-content:center">
+                <label>
+                    Age:
+                    <label asp-for="Age">
+                        <input asp-for="Age" />
+                    </label>
+                    <span asp-validation-for="Age"></span>
+                </label>
+            </div>
+            <div>
+                    picture:
+                    <label asp-for="File">
+                        <input asp-for="File" />
+                    </label>
+                    <span asp-validation-for="File"></span>
+            </div>
+            <div>
+                <label>
+                    Description:
+                    <label asp-for="Descripition">
+                        <input asp-for="Descripition" />
+                    </label>
+                    <span asp-validation-for="Descripition"></span>
+                </label>
+            </div>
+        <div>
+            <label>
+                Type:
+                <select asp-for=CategoryId>
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <option value="@category.CategoryId">@category.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId"></span>
+            </label>
+        </div>
+        <input type="submit" value="submit" />
+        <div asp-validation-summary="All"></div>
+        </div>
+    </div>
+</form>
+

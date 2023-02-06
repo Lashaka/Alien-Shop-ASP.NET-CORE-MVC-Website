@@ -6,7 +6,7 @@ namespace AlienShopWebsite.Models
     public class Comment
     {
         [Required]
-        public int? CommentID { get; set; }
+        public int? CommentId { get; set; }
         [Display(Name = "comment")]
         [DataType(DataType.MultilineText)]
         [Range(1, 100)]

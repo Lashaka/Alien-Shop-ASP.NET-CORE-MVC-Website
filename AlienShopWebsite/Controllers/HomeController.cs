@@ -1,26 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System;
+using AlienShopWebsite.Repositories;
 
 namespace AlienShopWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private Irepository irepository;
+        public HomeController(Irepository iripository)
         {
-            _logger = logger;
+            this.irepository = iripository;
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            return View(irepository.Top2Aliens());
         }
 
     }
