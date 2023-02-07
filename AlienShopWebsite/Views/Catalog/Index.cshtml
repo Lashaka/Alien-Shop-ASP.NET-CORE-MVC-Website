@@ -43,6 +43,16 @@
         appearance: none;
         outline: none;
         text-align: center;
+        align-content:center;
+        align-self:center;
+        align-items:center;
+        
+    }
+    form{
+        text-align: center;
+        align-content: center;
+        align-self: center;
+        align-items: center;
     }
 
         select:focus {
@@ -50,10 +60,36 @@
             background-color: #ff0080;
         }
 
+    h1 {
+        -webkit-text-stroke-width: 7px;
+        -webkit-text-stroke: cyan;
+        -webkit-text-stroke-color: cyan;
+        -webkit-text-stroke-width: 5px;
+        text-align: center;
+        font-size: 100px;
+        animation: StaticNeonEffect 6s ease-in-out infinite;
+    }
+
+    @@keyframes StaticNeonEffect {
+        0% {
+            color: blue;
+            -webkit-text-stroke-color: #00bfff;
+        }
+
+        50% {
+            color: #ff0080;
+            -webkit-text-stroke-color: pink;
+        }
+
+        100% {
+            color: blue;
+            -webkit-text-stroke-color: #00bfff;
+        }
+    }
+
 </style>
 
 <h1>catalog page</h1>
-<label>Alien category:</label>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(function () {
@@ -67,7 +103,7 @@
 <form id="cat-form">
     <div class="align-content-center">
         <select class="cat-select" id="cat-select">
-            <option value="">Selected type</option>
+            <option value="">select type</option>
             <option value="0">All Aliens</option>
             @foreach (var category in ViewBag.Categories)
             {
@@ -76,6 +112,7 @@
         </select>
     </div>
 </form>
+
 <table class="table table-dark" id="alien-table">
     <tr>
         <th>Picture:</th>
@@ -95,16 +132,3 @@
         </tr>
     }
 </table>
-
-@{
-    var firstAlien = Model.FirstOrDefault();
-    var selectedCategory = ViewBag.SelectedCategoryId;
-}
-@if (selectedCategory == null)
-{
-    <h1> All Aliens</h1>
-}
-else
-{
-    <h1>@(firstAlien?.Category?.Name ?? "")</h1>
-}

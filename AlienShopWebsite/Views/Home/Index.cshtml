@@ -32,8 +32,35 @@
         border-radius: 10px 10px 0 0;
     }
 
+    h1 {
+        -webkit-text-stroke-width: 7px;
+        -webkit-text-stroke: cyan;
+        -webkit-text-stroke-color: cyan;
+        -webkit-text-stroke-width: 5px;
+        text-align: center;
+        font-size: 100px;
+        animation: StaticNeonEffect 6s ease-in-out infinite;
+    }
+
+    @@keyframes StaticNeonEffect {
+        0% {
+            color: blue;
+            -webkit-text-stroke-color: #00bfff;
+        }
+
+        50% {
+            color: #ff0080;
+            -webkit-text-stroke-color: pink;
+        }
+
+        100% {
+            color: blue;
+            -webkit-text-stroke-color: #00bfff;
+        }
+    }
+
 </style>
-<h1 style="text-align:center">the 3 most popular Aliens right now are:</h1>
+<h1 >the 3 most popular Aliens right now are:</h1>
 <table class="table table-dark">
     <tr>
         <th>picture:</th>
