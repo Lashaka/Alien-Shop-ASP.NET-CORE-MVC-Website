@@ -32,7 +32,7 @@ namespace AlienShopWebsite.Services
             {
                 AlienId = 2,
                 Name = "Fluffy Redhand Shlomper",
-                Age = 12,
+                Age = 32,
                 Descripition = "fluffy and friendly extraterrestrial with red hands and an adorable appearance.",
                 PicturePath = "https://w0.peakpx.com/wallpaper/277/21/HD-wallpaper-cute-alien-alien-art-cute-new.jpg",
                 CategoryId = 1
@@ -41,7 +41,7 @@ namespace AlienShopWebsite.Services
             {
                 AlienId = 3,
                 Name = "Yellow Fredrih (Friendly)",
-                Age = 2,
+                Age = 1,
                 Descripition = "A cheerful and friendly yellow extraterrestrial creature with an undefined appearance.",
                 PicturePath = "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2016%2F06%2Fcj7.jpg",
                 CategoryId = 1
@@ -62,7 +62,7 @@ namespace AlienShopWebsite.Services
                 Age = 20,
                 Descripition = "A hybrid extraterrestrial creature that combines the traits of the shreker and DemiAdam species.",
                 PicturePath = "https://i5.walmartimages.com/asr/b16ea7b8-d49f-481c-8982-05b089cf7197.6e853ecbe3da28bf6752c1a445fda3ed.jpeg",
-                CategoryId = 1
+                CategoryId = 3
             },
             new
             {
@@ -71,7 +71,7 @@ namespace AlienShopWebsite.Services
                 Age = 42,
                 Descripition = "A extraterrestrial creature with a shaggy, sand-like appearance and a playful personality.",
                 PicturePath = "http://static.demilked.com/wp-content/uploads/2016/03/cute-fantasy-monsters-dolls-katyushka-7.jpg",
-                CategoryId = 4
+                CategoryId = 2
             },
             new
             {
@@ -80,7 +80,7 @@ namespace AlienShopWebsite.Services
                 Age = 42,
                 Descripition = "A extraterrestrial creature with the appearance of a wild jungle animal and a playful, yodeling voice.",
                 PicturePath = "https://64.media.tumblr.com/b04a9600db9ff4f52adcc3e5d12a2500/tumblr_nnq1n25je41upbn1no1_640.jpg",
-                CategoryId = 4
+                CategoryId = 1
             },
             new
             {
@@ -107,7 +107,7 @@ namespace AlienShopWebsite.Services
                 Age = 42,
                 Descripition = "A cheerful and adventurous extraterrestrial creature shaped like an orange cookie that enjoys riding a bicycle.",
                 PicturePath = "https://i.imgur.com/xDexsTf.png",
-                CategoryId = 2
+                CategoryId = 3
             });
        
 
