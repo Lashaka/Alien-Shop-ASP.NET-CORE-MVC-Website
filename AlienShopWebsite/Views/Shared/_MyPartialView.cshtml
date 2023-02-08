@@ -1,41 +1,72 @@
 ﻿@model AlienShopWebsite.Models.Alien
+<style>
+    body {
+        background: black repeat center top;
+        color: white;
+        font-family: Arial, sans-serif;
+        align-content:start;
+    }
+
+    label {
+        text-align: left;
+        padding: 20px;
+        font-size: 40px;
+        color: #fff;
+    }
+    button, input {
+        background-color: #ff0080;
+        border: 6px solid #00bfff;
+        color: black;
+        border-radius: 50px;
+        padding: 15px 30px;
+        font-size: 60px;
+        text-align: center;
+        transition: all 0.5s ease;
+        cursor: pointer;
+        align-content:first baseline;
+    }
+    div{
+        align-content:start;
+        text-align:left;
+        padding-left:200px;
+        margin-bottom:20px;
+    }
+
+        button:hover {
+            background-color: #00bfff;
+            color: #ff0080;
+        }
+
+
+    h1 {
+        -webkit-text-stroke-width: 7px;
+        -webkit-text-stroke: cyan;
+        -webkit-text-stroke-color: cyan;
+        -webkit-text-stroke-width: 5px;
+        text-align: center;
+        font-size: 100px;
+        animation: StaticNeonEffect 6s ease-in-out infinite;
+    }
+
+    @@keyframes StaticNeonEffect {
+        0% {
+            color: blue;
+            -webkit-text-stroke-color: #00bfff;
+        }
+
+        50% {
+            color: #ff0080;
+            -webkit-text-stroke-color: pink;
+        }
+
+        100% {
+            color: blue;
+            -webkit-text-stroke-color: #00bfff;
+        }
+    }
+</style>
 <form method="post" enctype="multipart/form-data">
     <div class="container align-content-start" >
-        <div class="text-center">
-            <div class="col">
-                <label>
-                    Name:
-                    <label asp-for="Name">
-                        <input asp-for="Name" />
-                    </label>
-                    <span asp-validation-for="Name"></span>
-                </label>
-            </div>
-            <div style="align-content:center">
-                <label>
-                    Age:
-                    <label asp-for="Age">
-                        <input asp-for="Age" />
-                    </label>
-                    <span asp-validation-for="Age"></span>
-                </label>
-            </div>
-            <div>
-                    picture:
-                    <label asp-for="File">
-                        <input asp-for="File" />
-                    </label>
-                    <span asp-validation-for="File"></span>
-            </div>
-            <div>
-                <label>
-                    Description:
-                    <label asp-for="Descripition">
-                        <input asp-for="Descripition" />
-                    </label>
-                    <span asp-validation-for="Descripition"></span>
-                </label>
-            </div>
         <div>
             <label>
                 Type:
@@ -48,6 +79,43 @@
                 <span asp-validation-for="CategoryId"></span>
             </label>
         </div>
+            <div >
+                <label>
+                    Name:
+                    <label asp-for="Name">
+                        <input asp-for="Name" />
+                    </label>
+                    <span asp-validation-for="Name"></span>
+                </label>
+            </div>
+            <div >
+                <label>
+                    Age:
+                    <label asp-for="Age">
+                        <input asp-for="Age" />
+                    </label>
+                    <span asp-validation-for="Age"></span>
+                </label>
+            </div>
+            <div>
+                <label>
+                    picture:
+                    <label asp-for="File">
+                        <input asp-for="File" />
+                    </label>
+                    <span asp-validation-for="File"></span>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Description:
+                    <label asp-for="Descripition">
+                        <input asp-for="Descripition" />
+                    </label>
+                    <span asp-validation-for="Descripition"></span>
+                </label>
+            </div>
+            <div>
         <input type="submit" value="submit" />
         <div asp-validation-summary="All"></div>
         </div>

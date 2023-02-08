@@ -77,14 +77,19 @@ namespace AlienShopWebsite.Controllers
             string UniqeFileName = null;
 
             if (
-                ModelState.ErrorCount == 1 &&
-                ModelState.GetFieldValidationState("PicturePath") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
+           ModelState.ErrorCount == 1 &&
+           ModelState.GetFieldValidationState("PicturePath") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
             {
                 string UploadFolder = Path.Combine(_HostDataBase.WebRootPath, "Images");
+                if (!Directory.Exists(UploadFolder))
+                {
+                    Directory.CreateDirectory(UploadFolder);
+                }
                 UniqeFileName = Guid.NewGuid().ToString() + "_" + alien.File!.FileName;
                 string FilePath = Path.Combine(UploadFolder, UniqeFileName);
                 alien.File.CopyTo(new FileStream(FilePath, FileMode.Create));
             }
+
             Alien NewAlien = new Alien
             {
                 Name = alien.Name,
