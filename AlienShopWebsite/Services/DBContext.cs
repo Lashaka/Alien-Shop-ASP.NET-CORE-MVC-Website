@@ -7,6 +7,10 @@ namespace AlienShopWebsite.Services
 {
     public class DBContext : DbContext
     {
+        public DBContext()
+        {
+        }
+
         public DBContext(DbContextOptions<DBContext> options) : base(options)
         {
 
@@ -109,7 +113,7 @@ namespace AlienShopWebsite.Services
                 PicturePath = "https://i.imgur.com/xDexsTf.png",
                 CategoryId = 3
             });
-       
+
 
             modelBuilder.Entity<Category>().HasData(
             new
@@ -137,13 +141,13 @@ namespace AlienShopWebsite.Services
             new
             {
                 CommentId = 1,
-                Descripition = "very scry animal",
+                Descripition = "too many eyes for my taste..",
                 AlienId = 1
             },
             new
             {
                 CommentId = 2,
-                Descripition = "poisaning animal",
+                Descripition = "Not friendly, he ate my dog.",
                 AlienId = 2
             },
             new
@@ -152,30 +156,93 @@ namespace AlienShopWebsite.Services
                 Descripition = "cute animal",
                 AlienId = 3
             },
+
             new
             {
                 CommentId = 4,
-                Descripition = "huge animal",
+                Descripition = "Aww, such a cute pet!",
+                AlienId = 3
+            },
+
+            new
+            {
+                CommentId = 5,
+                Descripition = "buying gf",
                 AlienId = 4
             },
             new
             {
-                CommentId = 5,
-                Descripition = "cool animal",
+                CommentId = 6,
+                Descripition = "Congratulations! You have been selected to receive a free gift worth $1000. To claim your prize, simply click on the link below and enter your information. Hurry, this offer is only available for a limited time! shrigma.co.il",
                 AlienId = 5
             },
              new
              {
-                 CommentId = 6,
-                 Descripition = "scary animal",
+                 CommentId = 7,
+                 Descripition = "what a cutie, brings a lot of sand home doe..",
                  AlienId = 6
              },
              new
              {
-                 CommentId = 7,
-                 Descripition = "dangerous animal",
+                 CommentId = 8,
+                 Descripition = "dont let the looks decieve you.. he is very dangerous.",
                  AlienId = 7
-             });
+             },
+               new
+               {
+                   CommentId = 9,
+                   Descripition = "How adorable!",
+                   AlienId = 3
+               },
+             new
+             {
+                 CommentId = 10,
+                 Descripition = "How can something be so cute?",
+                 AlienId = 3
+             },
+            new
+            {
+                CommentId = 11,
+                Descripition = "Look at those cute little eyes!",
+                AlienId = 3
+            },
+           new
+           {
+               CommentId = 12,
+               Descripition = "Behaves well, hunts well.",
+               AlienId = 9
+           },
+           new
+           {
+               CommentId = 13,
+               Descripition = "Ate my home and then teleported back to the shop.. give him back what the hell",
+               AlienId = 5
+           },
+           new
+           {
+               CommentId = 14,
+               Descripition = "So much love for this cute little guy!",
+               AlienId = 4
+           },
+           new
+           {
+               CommentId = 15,
+               Descripition = "Can't help but smile when I see such a cute pet!",
+               AlienId = 1
+           },
+            new
+            {
+                CommentId = 16,
+                Descripition = "lets you eat him when you're hungry.. teleports whenever he wants out of the house and takes himself on a walk, might deliver pizzas for you.",
+                AlienId = 4
+            },
+              new
+              {
+                  CommentId = 17,
+                  Descripition = " behaves nice but isnt sfw.",
+                  AlienId = 10
+              }
+             );
         }
     }
 }

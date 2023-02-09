@@ -107,6 +107,10 @@
 </style>
 <table class="table table-dark">
     <tr>
+        <th>Picture:</th>
+        <td> <img class="img-thumbnail" style="width:600px" src="@Model.PicturePath"> </td>
+    </tr>
+    <tr>
         <th>Name:</th>
         <td>@Model.Name</td>
     </tr>
@@ -131,11 +135,7 @@
 
             <table class=" table table-dark">
                 <thead>
-                    <tr>
-                        <td>
-                            comments
-                        </td>
-                    </tr>
+
                 </thead>
                 <tbody>
 
@@ -152,7 +152,6 @@
             </table>
             <form method="post" asp-action="AddComment" asp-route-AlienId=@Model.AlienId>
                 <button type="submit"> add comment</button>
-                <input type="text" name="title" />
                 <input type="text" name="comment"/>
             </form>
         </div>

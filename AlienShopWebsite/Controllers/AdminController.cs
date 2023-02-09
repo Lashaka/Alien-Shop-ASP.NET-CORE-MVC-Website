@@ -1,5 +1,6 @@
 ﻿using AlienShopWebsite.Models;
 using AlienShopWebsite.Repositories;
+using AlienShopWebsite.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AlienShopWebsite.Controllers
@@ -42,27 +43,42 @@ namespace AlienShopWebsite.Controllers
         public IActionResult EditAlien(int id, Alien alien)
         {
             string UniqeFileName = null;
-            if (
-                ModelState.ErrorCount == 1 &&
-                ModelState.GetFieldValidationState("PicturePath") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
-            {
-                string UploadFolder = Path.Combine(_HostDataBase.WebRootPath, "Images");
-                UniqeFileName = Guid.NewGuid().ToString() + "_" + alien.File!.FileName;
-                string FilePath = Path.Combine(UploadFolder, UniqeFileName);
-                alien.File.CopyTo(new FileStream(FilePath, FileMode.Create));
-            }
-            Alien NewAlien = new Alien
-            {
-                Name = alien.Name,
-                Age = alien.Age,
-                CategoryId = alien.CategoryId,
-                Descripition = alien.Descripition,
-                PicturePath = "Images\\" + UniqeFileName
-            };
 
-            irepository.UpdateAlien(id, NewAlien);
-            return RedirectToAction("Index");
+                if (alien.File != null)
+                {
+                    string UploadFolder = Path.Combine(_HostDataBase.WebRootPath, "Images");
+                    UniqeFileName = Guid.NewGuid().ToString() + "_" + alien.File.FileName;
+                    string FilePath = Path.Combine(UploadFolder, UniqeFileName);
+                    alien.File.CopyTo(new FileStream(FilePath, FileMode.Create));
+                    Alien NewAlien = new Alien
+                    {
+                        Name = alien.Name,
+                        Age = alien.Age,
+                        CategoryId = alien.CategoryId,
+                        Descripition = alien.Descripition,
+                        PicturePath = UniqeFileName != null ? "Images\\" + UniqeFileName : null
+                    };
+                    irepository.UpdateAlien(id, NewAlien);
+
+                }
+                else
+                {
+                    Alien NewAlien = new Alien
+                    {
+                        Name = alien.Name,
+                        Age = alien.Age,
+                        CategoryId = alien.CategoryId,
+                        Descripition = alien.Descripition,
+                        PicturePath = "Images\\"
+                    };
+                    irepository.UpdateAlien(id, NewAlien);
+
+            }
+
+                return RedirectToAction("Index");
+
         }
+
 
 
         [HttpGet]

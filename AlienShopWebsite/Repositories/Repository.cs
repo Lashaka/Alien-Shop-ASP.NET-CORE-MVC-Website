@@ -21,7 +21,17 @@ namespace AlienShopWebsite.Repositories
         {
             return dBContext.Aliens.Include(c => c.Comments).OrderByDescending(c => c.Comments!.Count).Take(3).ToList();
         }
-        public Alien GetAlienById(int id) => dBContext.Aliens.First(a => a.AlienId == id);
+        public Alien GetAlienById(int id)
+        {
+            if (dBContext.Aliens.Any(a => a.AlienId == id))
+            {
+                return dBContext.Aliens.First(a => a.AlienId == id);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public void Delete(int id)
         {
             var Alien= dBContext.Aliens.Single(Alien => Alien.AlienId == id);
@@ -30,8 +40,14 @@ namespace AlienShopWebsite.Repositories
         }
         public void AddAlien(Alien alien)
         {
-           dBContext.Add(alien);
-           dBContext.SaveChanges();
+            try
+            {
+                dBContext.Add(alien);
+                dBContext.SaveChanges();
+            }
+            catch
+            {
+            }
         }
         public IEnumerable<Category> GetCategories()
         {
@@ -42,7 +58,7 @@ namespace AlienShopWebsite.Repositories
             var alienInDb = dBContext.Aliens!.Single(m => m.AlienId == id);
             alienInDb.Name = alien.Name;
             alienInDb.Age = alien.Age;
-            alienInDb.Category = alien.Category;
+            alienInDb.CategoryId = alien.CategoryId;
             alienInDb.Comments = alien.Comments;
             alienInDb.PicturePath = alien.PicturePath;
             alienInDb.Descripition = alien.Descripition;
@@ -53,9 +69,15 @@ namespace AlienShopWebsite.Repositories
             return dBContext.Categories.Find(categoryID)!.Aliens!;
         }
 
-        public IEnumerable<Comment> AddComments( string comment, int id)
+        public IEnumerable<Comment> AddComments(string comment, int id)
         {
-            Comment _comment = new()
+            var alien = dBContext.Aliens.FirstOrDefault(a => a.AlienId == id);
+            if (alien == null)
+            {
+                throw new ArgumentException("No Alien with the specified id was found.");
+            }
+
+            Comment _comment = new Comment
             {
                 Descripition = comment,
                 AlienId = id
@@ -64,6 +86,7 @@ namespace AlienShopWebsite.Repositories
             dBContext.SaveChanges();
             return dBContext.Comments;
         }
+
         public IEnumerable <Comment> ShowComments(int Id)
         {
             var Alien = dBContext.Aliens!.Find(Id);

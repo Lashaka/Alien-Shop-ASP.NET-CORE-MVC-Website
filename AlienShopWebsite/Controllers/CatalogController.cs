@@ -26,23 +26,23 @@ namespace AlienShopWebsite.Controllers
         {
 
             var comments = irepository.ShowComments(Id);
-            var animals = irepository.GetAlienById(Id);
-            return View(animals);
+            var aliens = irepository.GetAlienById(Id);
+            return View(aliens);
         }
         [HttpPost]
-        public IActionResult AddComment(int AnimalId, string comment)
+        public IActionResult AddComment(int AlienId, string comment)
         {
             if (comment.IsNullOrEmpty() || comment.Length > 100)
             {
 
-                return RedirectToAction("Details", "Catalog", new { id = AnimalId });
+                return RedirectToAction("Details", "Catalog", new { id = AlienId });
             }
             else
             {
-                var animals = irepository.GetAlienById(AnimalId);
-                irepository.AddComments(comment, AnimalId);
+                var aliens = irepository.GetAlienById(AlienId);
+                irepository.AddComments(comment, AlienId);
             }
-            return RedirectToAction("Details", "Catalog", new { id = AnimalId });
+            return RedirectToAction("Details", "Catalog", new { id = AlienId });
         }
     }
 }

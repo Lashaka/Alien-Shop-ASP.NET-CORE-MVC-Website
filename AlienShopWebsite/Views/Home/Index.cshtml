@@ -48,6 +48,22 @@ table {
         animation: StaticNeonEffect 6s ease-in-out infinite;
     }
 
+    button {
+        background-color: #ff0080;
+        border: 6px solid white;
+        color: #00bfff;
+        border-radius: 50px;
+        padding: 15px 30px;
+        font-size: 60px;
+        text-align: center;
+        transition: all 0.5s ease;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #00bfff;
+            color: #ff0080;
+        }
     @@keyframes StaticNeonEffect {
         0% {
             color: blue;
@@ -73,6 +89,7 @@ table {
         <th>Name:</th>
         <th>Description:</th>
         <th>number of comments:</th>
+        <th>Details</th>
     </tr>
     @foreach (var alien in Model)
     {
@@ -83,6 +100,7 @@ table {
             <td>@alien.Name</td>
             <td>@alien.Descripition</td>
             <td>@alien.Comments.Count</td>
+            <td><a href="/Catalog/Details?id=@alien.AlienId"><button>Details</button></a></td>
         </tr>
     }
 </table>
