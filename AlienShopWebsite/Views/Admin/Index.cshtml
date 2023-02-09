@@ -62,8 +62,8 @@
 
     button {
         background-color: #ff0080;
-        border: 6px solid #00bfff;
-        color: black;
+        border: 6px solid white;
+        color: #00bfff;
         border-radius: 50px;
         padding: 15px 30px;
         font-size: 60px;
@@ -152,8 +152,8 @@
             </td>
             <td>@Alien.Name</td>
             <td>@Alien.Descripition:</td>
-            <td><a asp-action="EditAlien" asp-route-Id=@Alien.AlienId>Edit</a></td>
-            <td><a asp-action="DeleteAlien" asp-route-Id=@Alien.AlienId>Delete</a></td>
+            <td><a asp-action="EditAlien" asp-route-Id=@Alien.AlienId><button>Edit</button></a></td>
+            <td><a asp-action="DeleteAlien" asp-route-Id=@Alien.AlienId><button>Delete</button></a></td>
         </tr>
     }
 </table>

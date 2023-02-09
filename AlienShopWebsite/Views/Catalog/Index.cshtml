@@ -16,7 +16,6 @@
         box-shadow: 2px 2px 10px #000;
         border-radius: 30px;
         border: solid 6px #ff0080;
-       
     }
 
     th, td {
@@ -24,7 +23,7 @@
         padding: 20px;
         font-size: 40px;
         color: #fff;
-        height:600px;
+        height: 600px;
     }
 
     tr:nth-child(even) {
@@ -35,7 +34,7 @@
         background-color: #ff0080;
         font-weight: bold;
         font-size: 50px;
-        width:25%;
+        width: 25%;
         height: 200px;
     }
 
@@ -49,21 +48,38 @@
         appearance: none;
         outline: none;
         text-align: center;
-        align-content:center;
-        align-self:center;
-        align-items:center;
-        
+        align-content: center;
+        align-self: center;
+        align-items: center;
     }
-    form{
+
+    form {
         text-align: center;
         align-content: center;
         align-self: center;
         align-items: center;
     }
 
-        select:focus {
-            border-color: #00bfff;
-            background-color: #ff0080;
+    select:focus {
+        border-color: #00bfff;
+        background-color: #ff0080;
+    }
+
+    button {
+        background-color: #ff0080;
+        border: 6px solid white;
+        color: #00bfff;
+        border-radius: 50px;
+        padding: 15px 30px;
+        font-size: 60px;
+        text-align: center;
+        transition: all 0.5s ease;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #00bfff;
+            color: #ff0080;
         }
 
     h1 {
@@ -134,7 +150,7 @@
             </td>
             <td>@Alien.Name</td>
             <td>@Alien.Descripition</td>
-            <td><a href="/Catalog/Details?id=@Alien.AlienId">Details</a></td>
+            <td><a href="/Catalog/Details?id=@Alien.AlienId"><button>Details</button></a></td>
         </tr>
     }
 </table>
