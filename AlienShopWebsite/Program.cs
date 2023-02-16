@@ -4,7 +4,7 @@ using AlienShopWebsite.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<DBContext>(options => options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
-builder.Services.AddTransient<Irepository, Repository>();
+builder.Services.AddTransient<IalienRepo, AlienRepo>();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 var app = builder.Build();
 app.UseStaticFiles();

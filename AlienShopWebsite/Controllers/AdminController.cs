@@ -7,10 +7,10 @@ namespace AlienShopWebsite.Controllers
 {
     public class AdminController : Controller
     {
-        private Irepository irepository;
+        private IalienRepo irepository;
         private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _HostDataBase;
 
-        public AdminController(Microsoft.AspNetCore.Hosting.IHostingEnvironment _HostingContext, Irepository _irepository)
+        public AdminController(Microsoft.AspNetCore.Hosting.IHostingEnvironment _HostingContext, IalienRepo _irepository)
         {
             this.irepository = _irepository;
             this._HostDataBase = _HostingContext;

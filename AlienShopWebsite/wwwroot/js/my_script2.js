@@ -1,1 +1,0 @@
-function myAlert2(t){alert(t+" -- 15")}

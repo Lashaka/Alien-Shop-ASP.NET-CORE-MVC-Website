@@ -5,11 +5,11 @@ using System.Xml.Linq;
 
 namespace AlienShopWebsite.Repositories
 {
-    public class Repository : Irepository
+    public class AlienRepo : IalienRepo
     {
         private readonly DBContext dBContext;
 
-        public Repository(DBContext _dbContext)
+        public AlienRepo(DBContext _dbContext)
         {
             dBContext = _dbContext;
         }

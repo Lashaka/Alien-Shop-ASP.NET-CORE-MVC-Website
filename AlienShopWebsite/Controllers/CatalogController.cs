@@ -6,9 +6,9 @@ namespace AlienShopWebsite.Controllers
 {
     public class CatalogController : Controller
     {
-        private Irepository irepository;
+        private IalienRepo irepository;
 
-        public CatalogController(Irepository _iripository)
+        public CatalogController(IalienRepo _iripository)
         {
             this.irepository = _iripository;
         }

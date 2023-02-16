@@ -7,8 +7,8 @@ namespace AlienShopWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        private Irepository irepository;
-        public HomeController(Irepository iripository)
+        private IalienRepo irepository;
+        public HomeController(IalienRepo iripository)
         {
             this.irepository = iripository;
         }

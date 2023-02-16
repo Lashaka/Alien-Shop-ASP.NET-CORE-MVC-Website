@@ -1,7 +1,7 @@
 ﻿using AlienShopWebsite.Models;
 namespace AlienShopWebsite.Repositories
 {
-   public interface Irepository
+   public interface IalienRepo
     {
         IEnumerable<Alien> GetAliens();
         IEnumerable<Category> GetCategories();
